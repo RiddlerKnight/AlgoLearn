@@ -9,6 +9,9 @@ def honoi_tw(ndisk, from_peg, to_peg):
     honoi_tw(ndisk - 1,  unset_peg, to_peg)
     return
 
-honoi_tw(3, 1, 3)
+args = []
+args.append(int(input("Enter Disk Number:")))
+args.append(int(input("Enter From Peg Number:")))
+args.append(int(input("Enter To Peg Number:")))
 
-
+honoi_tw(*args)
