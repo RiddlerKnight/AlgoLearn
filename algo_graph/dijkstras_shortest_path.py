@@ -5,16 +5,19 @@ def FindShortPath(gp, start, end):
     passed_node = []    
     path = []
 
+    # Find the end node is in the passed node
     while passed_node.count(end) != 1:
         new_start = 0
         index = 0
+        # Fetch weight of start node
         for node_arr in gp[start]:
-            if node_arr[0] == end:
-                path.append(node_arr)
+            # if current node is the end node, end loop
+            if start == end:
+                # path.append(node_arr)
                 break
-            if len(path) == 0 or (node_arr[1] < path[len(path) - 1][1] and passed_node.count(start) == 0):
-                if len(path) == 0 or len(path) == len(passed_node):
+            if len(path) == 0 or len(path) == len(passed_node):
                     path.append([])
+            if (path[len(path) - 1] == [] or (node_arr[1] < path[len(path) - 1][1])) and passed_node.count(start) == 0 and passed_node.count(node_arr[0]) == 0:
                 path[len(path) - 1] = node_arr
                 new_start = node_arr[0]
             index += 1
