@@ -2,3 +2,4 @@
 .vscode
 /ex
 *.zip
+__pycache__/
